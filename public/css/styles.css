@@ -39,7 +39,7 @@ font-style: normal;
     #header {
         position: sticky;
         max-width: 100%;
-        background-color: #333333;
+        background-color:  #ff1d25;
         top: 0;
         color:#ffffff;
         padding: 1%;
@@ -71,7 +71,7 @@ font-style: normal;
         #header {
             position: sticky;
             width: 100%;
-            background-color: #333333;
+            background-color:  #ff1d25;
             top: 0;
             color:#ffffff;
             padding: 1%;
@@ -110,4 +110,7 @@ font-style: normal;
     display: flex;
   flex-wrap: wrap;
   flex-direction: row;
+}
+.flex{
+    display: flex;
 }
