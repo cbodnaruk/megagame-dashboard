@@ -41,7 +41,10 @@ app.get('/admin', async (req, res) => {
 
 })
 
+app.get('/media', async (req, res) => {
+    res.render('media', { 'site_title': prefs.site_title, 'header_title': prefs.header_title, 'header_subtitle': prefs.header_subtitle });
 
+})
 
 
 

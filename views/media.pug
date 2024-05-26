@@ -7,16 +7,18 @@ html
     link(rel='stylesheet', href='https://fonts.googleapis.com/css2?family=Rubik+Mono+One&display=swap')
     meta(name='viewport', content='width=device-width, initial-scale=1.0')
     script(src='https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js')
-    script(src='/scripts/newsfeed.js')
-    script(src='/scripts/page_load.js')
+    script(src='/scripts/admin.js')
+    script(src='/scripts/newsfeed_adminpanel.js')
   body
-  
+    
     div#header 
       div.flex 
         img(src='https://static.wixstatic.com/media/7bd26b_fe97382bdc674939a943551a766bc17b~mv2.png/v1/fill/w_111,h_111,al_c,q_85,usm_0.66_1.00_0.01,enc_auto/PressRoundel_01_GNN.png')
         div
           div#title= header_title
           div#subtitle= header_subtitle
+    div#subsubtitle Media Panel
     div#content
+      div
+        div#newpost
         div#newsfeed
-        div#timer

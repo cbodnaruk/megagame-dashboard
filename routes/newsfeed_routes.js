@@ -41,7 +41,7 @@ router.get('/postsload', async (req, res) => {
         res.render('newsfeed', { "posts": post_list });
     }
     catch (e) {
-        res.send(error)
+        res.send(e)
     }
 })
 
