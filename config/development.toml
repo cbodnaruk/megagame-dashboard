@@ -1,0 +1,15 @@
+# config/development.toml
+# Application configuration for Development environment.
+
+
+[database]
+
+url = "postgres://FIXME_USERNAME:FIXME_PASSPHRASE@localhost:5432/FIXME_DATABASE"
+
+
+# Local-variables:
+# coding: utf-8
+# mode: conf
+# mode: toml
+# End:
+# vim: fileencoding=utf-8 filetype=toml :
