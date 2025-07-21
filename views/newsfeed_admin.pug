@@ -6,7 +6,7 @@ div#newpost
     p New Post
     textarea#postinput(name="newinput", cols="45", rows="6", maxlength="255", placeholder="Write post here")
     p 
-      span.submit(onclick="submitPost()") Submit Post
+      button(onclick="submitPost()") Submit Post
 div#anewsfeed
   - const numposts = posts.length 
   - var i = numposts - 1
@@ -15,7 +15,7 @@ div#anewsfeed
       div.post(id=posts[i].id+"p")
         p.text= posts[i].posttext
         p.time= 'Posted at ' + posts[i].timecode
-        p
-          span.edit(id=posts[i].id, onclick="beginEdit(this.id)") Edit Post
-          span.delete(id=posts[i].id, onclick="deletePost(this.id)") Delete Post
+        p.newsfeed_controls
+          button(id=posts[i].id, onclick="beginEdit(this.id)") Edit Post
+          button.red(id=posts[i].id, onclick="deletePost(this.id)") Delete Post
     - i--

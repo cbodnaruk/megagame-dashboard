@@ -17,6 +17,10 @@
     margin-top: 2%;
     margin-bottom: 10%;
 }
+
+#numbers_editor button{
+    margin-right:1vw;
+}
 .number{
     color: white;
     font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;

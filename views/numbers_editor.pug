@@ -16,6 +16,6 @@ div.numbers_container
       span.stat_setting 
         input.number_separator_editor(id=`s_${number.name}`, type="number", onChange=`updateNumber("${number.name}")`, value=number.separator)
 div#numbers_editor 
-  span.btn(onclick="newNumber()" class="material-symbols-outlined") add_box
-  span.btn(onclick="rmNumber()" class="material-symbols-outlined") indeterminate_check_box
+  button.blue(onclick="newNumber()" class="material-symbols-outlined") add_box
+  button.red(onclick="rmNumber()" class="material-symbols-outlined") indeterminate_check_box
   

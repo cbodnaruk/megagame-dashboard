@@ -2,41 +2,43 @@ script.
   const phaseData = !{sphases};
   const roundData = !{srounds};
   const runningData = {is_running: !{is_running}, is_paused: !{is_paused}};
-  console.log("find me")
 script(src='/scripts/timer_editor.js')
 script(src='https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js')
 
 div(style={'flex-basis': '600px'})
   div#timer_controller
-    if is_running 
-      span.btn.controller#start_timer(onClick='startTimer(false)') Stop
-    else
-      span.btn.controller#start_timer(onClick='startTimer(true)') Start
-    if is_paused 
-      span.btn.controller#pause_timer(onClick='pauseTimer(false)') Unpause
-    else 
-      span.btn.controller#pause_timer(onClick='pauseTimer(true)') Pause
-    span.btn.controller#skip_phase_timer(onClick='skipTimer("p")') Skip to Next Phase
-    span.btn.controller#reset_timer(onClick='resetTimer("f")') Reset to Start 
-    span.btn.controller#resetphase_timer(onClick='resetTimer("p")') Reset to Current Phase
+    #timer_controller_buttons
+      #left_panel
+        if !is_running
+          button.controller#playpause_timer(status="stopped") ▶
+        else if is_running && !is_paused
+          button.controller#playpause_timer(status="running") ⏸
+        else if is_running && is_paused
+          button.controller#playpause_timer(status="paused") ▶
+      #right_panel 
+        button.controller#skip_timer Skip to Next Phase
+        button.controller#resetphase_timer Reset Current Phase
+        button.controller.red#reset_timer Stop and Reset to Start 
+    #timer_status=(is_running) ? (is_paused) ? "Paused" : "Running" : "Stopped"
   div#timer_editor
-    div 
+    div
       div#timer_editor_gamestructure
       div#timer_editor_control
-            span#add_round_row(class="material-symbols-outlined btn" onclick="addRoundRow()") add
-            span#delete_round__row(class="material-symbols-outlined btn" onClick="deleteRoundRow()") remove    
+            button#add_round_row(class="material-symbols-outlined blue") add
+            button#delete_round__row(class="material-symbols-outlined red" onClick="deleteRoundRow()") remove    
+    hr
     div#phaseflex
-      div
+      div#round_types
         div.ctext Select a Round Type to Edit: 
         div#round_selectors
           each round in rounds 
             div.paddedbtn(id="sdiv"+round.id)
-              span.btnb(id="select"+round.id, onClick="changeRound(event)")=round.round_name
-        div.paddedbtn
-          span(class="material-symbols-outlined btn" id="new_round_type", onClick="newRound()") add_box
-          span(class="material-symbols-outlined btn" id="rm_round_type", onClick="rmRound()") delete
+              button(id="select"+round.id, onClick="changeRound(event)")=round.round_name
+        div#addremove_rounds.paddedbtn
+          button(class="material-symbols-outlined blue" id="new_round_type", onClick="newRound()") add_box
+          button(class="material-symbols-outlined red" id="rm_round_type", onClick="rmRound()") delete
       div 
         div#round_editor
         div#timer_editor_control
-          span#add_row(class="material-symbols-outlined btn" onclick="addRow()") add
-          span#delete_row(class="material-symbols-outlined btn" onClick="deleteRow()") remove
+          button#add_row(class="material-symbols-outlined blue" onclick="addRow()") add
+          button#delete_row(class="material-symbols-outlined red" onClick="deleteRow()") remove

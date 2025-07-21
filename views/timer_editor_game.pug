@@ -20,8 +20,8 @@ table
           each y in structure 
             - count ++
             tr 
-              td=count  
-              td
+              td.num=count  
+              td.name
                 select(id="round"+y.id, name="round"+y.id, onchange="updateGameRound(event)")
                   each round in rounds
                     if y.round_id == round.id

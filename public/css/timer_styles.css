@@ -6,6 +6,10 @@
     padding-top: 1%;
 }
 
+#timer_editor {
+    background-color: black;
+}
+
 @media screen and (min-width: 650px) {
     #timer {
         max-width: 600px;
@@ -16,6 +20,33 @@
     #timer {
         max-width: 95%;
     }
+}
+
+.controller {
+    min-width: 70px;
+}
+
+#right_panel {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: stretch;
+    margin-left: 5px;
+}
+
+#right_panel button {
+    margin: 5px;
+}
+
+
+#left_panel button {
+    height: 100%;
+    width: 100%;
+    font-size: 3em;
+}
+
+#left_panel {
+    flex-grow: 1;
 }
 
 #timer_module {
@@ -34,6 +65,26 @@
     box-sizing: border-box;
     border-radius: 4px;
     display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 20vw;
+    padding: 1vw;
+    flex-wrap: wrap;
+    margin: auto;
+}
+
+#timer_controller_buttons {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+#timer_status{
+    align-self: center;
+    padding: 0.5vw;
+    font-size: 1.5em;
+
+
 }
 
 .btn {
@@ -56,12 +107,27 @@
 
 #phaseflex {
     display: flex;
+    flex-direction:column;
+}
+
+#round_selectors{
+    flex-direction: row;
+    display: flex;
+    justify-content: flex-start;
 }
 
 #phaselist {
     font-size: 2.2em;
 }
 
+#addremove_rounds button{
+margin-left:1vw;
+margin-right:1vw;
+}
+
+#addremove_rounds{
+text-align: center;
+}
 
 
 @media screen and (min-width: 800px) {
@@ -81,6 +147,7 @@
     .btnb {
         font-size: 0.8em;
     }
+
     #audio_test {
         font-family: sans-serif;
         color: #ddd;
@@ -108,30 +175,24 @@
         font-size: 1em;
     }
 
-    .controller {
-        font-family: 'Courier New', Courier, monospace;
-        background-color: #48a543;
-        padding: 3%;
-        border-radius: 3px;
-        margin: 2%;
-        color: #fff;
-        text-align: center;
-    }
+
 
     #phaseflex {
         flex-direction: column;
     }
-    input[type=checkbox]{
+
+    input[type=checkbox] {
         transform: scale(2);
     }
 
 }
+
 @media screen and (max-width:540px) {
     #table_container {
-        display: block; 
+        display: block;
         overflow-x: auto;
         width: 100vw;
-        }
+    }
 }
 
 
@@ -162,8 +223,7 @@
 }
 
 .ctext {
-    padding: 3%;
-    margin: 3%;
+    padding-left: 3%;
     color: white;
     font-size: 1em;
     font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
@@ -211,6 +271,10 @@ table {
     text-align: center;
 }
 
+#timer_editor_control button{
+    margin:1vw;
+}
+
 .this_phase {
     outline: 5px solid #ffffff;
     outline-offset: 0px;
@@ -219,4 +283,9 @@ table {
 
 .material-symbols-outlined.big {
     font-size: 2em;
+}
+
+.pi_duration {
+    width: 50%;
+    text-align: center;
 }
