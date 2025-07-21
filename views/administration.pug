@@ -29,6 +29,8 @@ html
     - const settings_bool = safeJSONParse(preferences.settings_visible, false);
     - const qrcode_bool = safeJSONParse(preferences.qrcode_visible, false);
     - const numbers_bool = safeJSONParse(preferences.numbers_show_difference, false)
+    - const timer0_bool = safeJSONParse(preferences.timer_turn0, false)
+    - console.log(timer0_bool)
       header#header(style={display:header_bool ? "block" : "none"})
         div#header_content
           div
@@ -57,6 +59,7 @@ html
           h3 Dashboard Settings 
           div 
             span.modal_tab(class="selected_prefs", onclick="changePrefsTab(event)") General
+            span.modal_tab(onclick="changePrefsTab(event)") Timer
             span.modal_tab(onclick="changePrefsTab(event)") Numbers 
             span.modal_tab(onclick="changePrefsTab(event)") Audio
             span.modal_tab(onclick="changePrefsTab(event)") Styling
@@ -112,6 +115,10 @@ html
             p 
               label(for="p_qrcode_darkColour") QR Code dark colour: 
               input(id="p_qrcode_darkColour", type="color", value=preferences.qrcode_darkColour, onChange="dashboard_settings.update(event)")
+          div#modal_tab_Timer.modal_tab_content
+            p 
+              label(for="p_timer_turn0") First turn is "Turn 0":
+              input(id="p_timer_turn0", type="checkbox", value=preferences.timer_turn0, onChange="dashboard_settings.update(event)", checked=timer0_bool)
           div#modal_tab_Numbers.modal_tab_content(style="display: none;")
             p 
               label(for="p_numbers_show_difference") (For Numbers module) Show difference between current and previous number: 

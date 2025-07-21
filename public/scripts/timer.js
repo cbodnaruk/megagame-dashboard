@@ -202,6 +202,10 @@ function updateClock(tc) {
             }
 
         }
+        // If there's a turn 0, move all numbers down one
+        if (timerTurn0){
+            current_turn_count -= 1
+        }
         $("#time").text(rmins + ":" + rsecs);
         $("#current_turn").text((current_turn_count + 1) + " (" + phaseData[current_phase].round_name + ")");
         var phase_name = document.getElementById("phaselist").children[current_phase + 1].children[0].children[0].innerText

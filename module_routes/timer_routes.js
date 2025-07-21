@@ -67,9 +67,10 @@ router.get('/editor/rounds', async (req, res) => {
 
 router.get('/editor/game', async (req, res) => {
     try {
+        var prefs = JSON.parse(fs.readFileSync('prefs.json', 'utf8'))
         let round_list = await db.any(rounds_db_call(req.params.dash_id)); 
         let game_list = await db.any(game_db_call(req.params.dash_id));
-        res.render('timer_editor_game', { "structure": game_list, "rounds": round_list, "is_running": timers[req.params.dash_id].is_running, "selection": req.query.sel });
+        res.render('timer_editor_game', { "structure": game_list, "rounds": round_list, "is_running": timers[req.params.dash_id].is_running, "selection": req.query.sel, "preferences":prefs[req.params.dash_id] });
     }
     catch (e) {
         res.send(e)
@@ -85,10 +86,11 @@ router.get('/controller', async (req, res) => {
 
 router.get('/view', async (req, res) => {
     try {
+        var prefs = JSON.parse(fs.readFileSync('prefs.json', 'utf8'))
         const phase_list = await db.any(full_db_call(req.params.dash_id));
         const game_struct = await db.any(game_db_call(req.params.dash_id));
         const audio_list = await db.any(audio_db_call(req.params.dash_id));
-        res.render('timer', { "phases": phase_list,"sphases": jst.stringify(phase_list), "sstruct": jst.stringify(game_struct), "dash_id": req.params.dash_id, "audio_cues": audio_list });
+        res.render('timer', { "phases": phase_list,"sphases": jst.stringify(phase_list), "sstruct": jst.stringify(game_struct), "dash_id": req.params.dash_id, "audio_cues": audio_list, "timer_turn0":prefs[req.params.dash_id].timer_turn0 });
     }
     catch (e) {
         res.send(e)
