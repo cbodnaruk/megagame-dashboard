@@ -18,4 +18,5 @@
 "subtimer_pass_text": "Success",
 "subtimer_fail_audio": "",
 "subtimer_fail_text": "Fail",
-"subtimer_title": "Timer"}
+"subtimer_title": "Timer",
+"timer_turn0":"false"}
