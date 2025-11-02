@@ -25,12 +25,13 @@ div(style={'flex-basis': '600px'})
       div#timer_editor_gamestructure
       div#timer_editor_control
             button#add_round_row(class="material-symbols-outlined blue") add
-            button#delete_round__row(class="material-symbols-outlined red" onClick="deleteRoundRow()") remove    
+            button#delete_round_row(class="material-symbols-outlined red" onClick="deleteRoundRow()") remove    
     hr
     div#phaseflex
       div#round_types
         div.ctext Select a Round Type to Edit: 
         div#round_selectors
+          - console.log(rounds)
           each round in rounds 
             div.paddedbtn(id="sdiv"+round.id)
               button(id="select"+round.id, onClick="changeRound(event)")=round.round_name

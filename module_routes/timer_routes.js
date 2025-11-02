@@ -207,6 +207,13 @@ router.post('/editstructure', urlencodedParser, async (req, res) => {
     }
 })
 ;
+
+router.get('/getnewroundid', async (req, res) => {
+    let dash_id = req.params.dash_id
+    let new_id = await db.one(`SELECT id FROM round_types WHERE dash_id = '${dash_id}' ORDER BY id DESC LIMIT 1`)
+    res.send((new_id.id + 1).toString())
+
+})
 async function save_phase(id, type, content,dash_id) {
     try {
         if (type == "p") {

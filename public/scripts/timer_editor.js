@@ -171,10 +171,26 @@ function pChangeRound(trig_id) {
     }, 300);
 }
 
-function newRound() {
+async function newRound() {
     //add new button
-    var new_id = parseInt($("#round_selectors").children().last().children("span").attr('id').slice(6)) + 1
-    $("#round_selectors").append(`<div class="paddedbtn" id="sdiv${new_id}"><span class="btnb" id="select${new_id}" onClick="changeRound(event)">New Round</span></div>`)
+    var res = await fetch("./timer/getnewroundid", {
+        method:'GET'})
+    var new_id = await res.text()
+
+    const roundSelectors = document.getElementById("round_selectors")
+    const wrapper = document.createElement('div')
+    wrapper.id = "sdiv" + new_id
+    wrapper.classList.add("paddedbtn")
+
+    const button = document.createElement('button')
+    button.id = "select" + new_id
+    button.onclick = "changeRound(event)"
+    button.textContent = "New Round"
+    wrapper.appendChild(button)
+
+    roundSelectors.appendChild(wrapper)
+    
+    
 
     //create new round type
     $.post("./timer/newround", { "id": new_id })
