@@ -123,3 +123,7 @@
         -webkit-transform: rotate(360deg);
     }
 }
+
+.newsfeed_controls button{
+    margin-right:1vw;
+}

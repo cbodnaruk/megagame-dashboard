@@ -1,7 +1,7 @@
 //get correct prefix for environment
 var ws_prefix = (window.location.hostname == "localhost") ? "ws://" : "wss://"
 
-var wsocket = new WebSocket(ws_prefix + location.host + '/'+dash_id+'/timer/sync/view');
+var wsocket = new WebSocket(ws_prefix + location.host + '/' + dash_id + '/timer/sync/view');
 
 var this_phase_id = 0;
 let keepAliveTimer = 0;
@@ -11,7 +11,7 @@ window.addEventListener("focus", (event) => {
     if (window.screen.width < 400) {
         var ws_prefix = (window.location.hostname == "localhost") ? "ws://" : "wss://"
 
-        var wsocket = new WebSocket(ws_prefix + location.host + '/'+dash_id+'/timer/sync/view');
+        var wsocket = new WebSocket(ws_prefix + location.host + '/' + dash_id + '/timer/sync/view');
     }
 
 })
@@ -30,9 +30,9 @@ function keepAlive(timeout = 30000) {
 const timer = {
     time: 0,
     running: false,
-    last_tick:0,
-    interval:0,
-    tick: function(){
+    last_tick: 0,
+    interval: 0,
+    tick: function () {
         this.tick.bind(this)
         let s = Math.round(Date.now() / 1000);
         if (s > this.last_tick) {
@@ -44,20 +44,20 @@ const timer = {
 
         }
         this.last_tick = s;
-        if (!this.running){this.stop()}
+        if (!this.running) { this.stop() }
     },
-    start: function(){
+    start: function () {
         let tick = this.tick.bind(this)
-        this.interval = setInterval(tick,250)
+        this.interval = setInterval(tick, 250)
     },
-    stop: function(){
+    stop: function () {
         clearInterval(this.interval)
     }
 
 }
 
 //wait until page is loaded and websocket is connected to check in with server and receive current time/running status
-function wsCheckIn(){
+function wsCheckIn() {
     if (checkInReady) {
         wsocket.send('open');
     } else {
@@ -69,16 +69,16 @@ function wsCheckIn(){
 wsocket.addEventListener("open", (event) => {
     wsCheckIn()
     keepAlive()
-    
+
 });
 
 //receive timer update from server
 wsocket.addEventListener("message", (event) => {
     if (event.data == "s") {
         location.reload()
-    } else if (event.data == "p"){
+    } else if (event.data == "p") {
         timer.running = false;
-    } else if (event.data == "r"){
+    } else if (event.data == "r") {
         timer.running = true;
         timer.start();
         console.log("received r")
@@ -177,7 +177,7 @@ function updateClock(tc) {
         current_phase--
 
         //handling for if time is 0
-        if (current_phase < 0){current_phase = 0;}
+        if (current_phase < 0) { current_phase = 0; }
 
         var current_turn = phaseData[current_phase].gid;
         checkTurn(current_turn);
@@ -203,7 +203,7 @@ function updateClock(tc) {
 
         }
         // If there's a turn 0, move all numbers down one
-        if (timerTurn0){
+        if (timerTurn0) {
             current_turn_count -= 1
         }
         $("#time").text(rmins + ":" + rsecs);
@@ -233,11 +233,12 @@ function checkTurn(current_turn) {
 }
 
 function playAudio(secs, turn) {
-if (end_phase == true) {
+    if (end_phase == true) {
         //if there is an audio cue associated with this turn (not null on left join), play it
-        if (phaseData[turn].audio_cue_name){
-        var audio = document.getElementById(phaseData[turn].audio_cue_name.replace(/ /g,"_")+"_audio");
-        audio.play()}
+        if (phaseData[turn].audio_cue_name) {
+            var audio = document.getElementById(phaseData[turn].audio_cue_name.replace(/ /g, "_") + "_audio");
+            audio.play()
+        }
         end_phase = false
     }
 
@@ -247,9 +248,9 @@ if (end_phase == true) {
 
 }
 
-function testAudio(cue){
+function testAudio(cue) {
     var audio = document.getElementById(cue);
     audio.play();
-    console.log("playing audio "+ cue)
+    console.log("playing audio " + cue)
 }
 

@@ -35,8 +35,6 @@ html
         div#header_content
           div
             h1#title= preferences.header_title
-            if preferences.header_subtitle
-              h2#subtitle= preferences.header_subtitle
           if preferences.logo_path
             div#qrcode_and_logo
               img#logo(src=preferences.logo_path, alt=preferences.logo_alt style="width:100px;padding:10px;")
@@ -127,8 +125,8 @@ html
             div Add audio cues here, then assign them to rounds in the timer editor.
             div#audio_cues
             div#cue_controls 
-              span#add_cue(class="material-symbols-outlined btn" onclick="addCue()") add
-              span#delete_cue(class="material-symbols-outlined btn" onClick="deleteCue()") remove                  
+              button#add_cue(class="material-symbols-outlined" onclick="addCue()") add
+              button#delete_cue(class="material-symbols-outlined" onClick="deleteCue()") remove                  
           div#modal_tab_Styling.modal_tab_content(style="display: none;")
             p Add custom CSS here. Suggested selectors can be found on the 
               a(href="https://github.com/cbodnaruk/megagame-dashboard/wiki") wiki.

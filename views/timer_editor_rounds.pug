@@ -19,9 +19,9 @@ div#table_container
                 if x.round_id == selection
                     tr(id="pir"+x.round_id)
                       td
-                        input(class="phase_input", id='phase'+x.id, type='text', value=x.phase, onchange='updatePhase(event)', disabled)
+                        input(class="phase_input pi_name", id='phase'+x.id, type='text', value=x.phase, onchange='updatePhase(event)', disabled)
                       td
-                        input(class="phase_input", id='duration'+x.id, type='text', value=x.duration, onchange='updatePhase(event)', disabled)
+                        input(class="phase_input pi_duration", id='duration'+x.id, type='text', value=x.duration, onchange='updatePhase(event)', disabled)
                       td
                         input(class="phase_input", id='minor'+x.id, type='checkbox', checked=x.minor, onchange='updatePhaseBool(event)', disabled)
                       td 
@@ -47,9 +47,9 @@ div#table_container
                 if x.round_id == selection
                     tr(id="pir"+x.round_id)
                       td
-                        input(class="phase_input", id='phase'+x.id, type='text', value=x.phase, onchange='updatePhase(event)')
+                        input(class="phase_input pi_name", id='phase'+x.id, type='text', value=x.phase, onchange='updatePhase(event)')
                       td
-                        input(class="phase_input", id='duration'+x.id, type='text', value=x.duration, onchange='updatePhase(event)')
+                        input(class="phase_input pi_duration", id='duration'+x.id, type='text', value=x.duration, onchange='updatePhase(event)')
                       td
                         input(class="phase_input", id='minor'+x.id, type='checkbox', checked=x.minor, onchange='updatePhaseBool(event)')
                       td 

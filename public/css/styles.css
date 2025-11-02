@@ -91,7 +91,7 @@ body.space {
     background-color: #333333;
     top: 0;
     color: #ffffff;
-    padding: 1%;
+    padding-left: 1%;
     z-index: 10;
 }
 
@@ -121,6 +121,24 @@ body.space {
     color: white;
     padding-left: 1%;
 }
+
+button {
+    border: none;
+    padding: 10px;
+    border-radius: 5px;
+    background-color: #ccc;
+    cursor: pointer;
+    transition: background-color 0.1s ease-in-out;
+    color: black;
+}
+
+button:hover {
+    background-color: #aaa;
+}
+
+button:active {
+    background-color: #999;
+}
 @media screen and (min-width: 801px) {
     #header {
         max-width: 100%;
@@ -140,6 +158,7 @@ body.space {
 
     .slot{
         overflow-y: scroll;
+        height: 100vh;
     }
 }
 
@@ -220,6 +239,8 @@ body.space {
 footer span {
     padding: 5px;
     cursor: pointer;
+    user-select: none;
+    pointer-events: all;
 }
 
 #homebutton {
@@ -228,6 +249,7 @@ footer span {
     position: sticky;
     bottom: 0;
     float: right;
+    pointer-events: none;
 }
 
 textarea,
@@ -404,3 +426,14 @@ select {
     height:15vh;
 }
 
+#cue_controls button{
+    margin-right: 1vw;
+    margin-top: 1vw;
+}
+
+.blue {
+    background-color: lightblue;
+}
+
+.red {
+    background-color: lightcoral;}

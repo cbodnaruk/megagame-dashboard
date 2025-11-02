@@ -6,3 +6,13 @@ function login(){
         window.location.replace(data)
     })
 }
+
+window.addEventListener("DOMContentLoaded", (event) => {
+    var input = document.getElementById("org_pw");
+    input.addEventListener("keypress", function (event) {
+        if (event.key === "Enter") {
+            event.preventDefault();
+            login()
+        }
+    })
+    });
