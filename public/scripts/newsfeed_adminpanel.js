@@ -20,7 +20,7 @@ function deletePost(post_id) {
 
 function beginEdit(post_id) {
     const this_post = document.getElementById(post_id + "p");
-    const x = document.getElementsByClassName("edit");
+    const x = document.getElementsByClassName("post_edit");
     const edit_button = x.namedItem(post_id);
     const y = document.getElementsByClassName("post_delete");
     const delete_button = y.namedItem(post_id);
