@@ -22,7 +22,7 @@ function beginEdit(post_id) {
     const this_post = document.getElementById(post_id + "p");
     const x = document.getElementsByClassName("edit");
     const edit_button = x.namedItem(post_id);
-    const y = document.getElementsByClassName("delete");
+    const y = document.getElementsByClassName("post_delete");
     const delete_button = y.namedItem(post_id);
     delete_button.outerHTML = "";
     edit_button.innerHTML = "Save Edit";

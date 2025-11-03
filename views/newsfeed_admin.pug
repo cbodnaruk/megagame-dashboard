@@ -17,5 +17,5 @@ div#anewsfeed
         p.time= 'Posted at ' + posts[i].timecode
         p.newsfeed_controls
           button(id=posts[i].id, onclick="beginEdit(this.id)") Edit Post
-          button.red(id=posts[i].id, onclick="deletePost(this.id)") Delete Post
+          button(class="post_delete red" id=posts[i].id, onclick="deletePost(this.id)") Delete Post
     - i--
