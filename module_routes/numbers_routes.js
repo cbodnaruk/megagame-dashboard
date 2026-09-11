@@ -49,6 +49,9 @@ router.post('/update', urlencodedParser, (req, res) => {
 })
 
 router.post('/add', urlencodedParser, (req, res) => {
+    if (!numbers[req.params.dash_id]){
+        numbers[req.params.dash_id] = new Array()
+    }
     numbers[req.params.dash_id].push(new Number(req.body.name,0))
 })
 
