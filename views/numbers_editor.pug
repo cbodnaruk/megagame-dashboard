@@ -2,19 +2,20 @@ script(src='/scripts/numbers_editor.js')
 
 h3#numbers_title Numbers
 div.numbers_container
-  each number in number_list 
-    -var name_parsed = number.name.replace("_"," ")
-    div.number_editor(id=number.name)
-      div.number_name(id="n_"+number.name, onclick=`editName("${number.name}")`)=name_parsed
-      input.number_name_editor(id="in_"+number.name, type="text", value=name_parsed, style="text-align: center; display: none;", inputmode="text", onfocusout=`updateNumber("${number.name}")`)
-      input.number_value_editor(id="i_"+number.name, type="text", value=number.value, style="text-align: center;", inputmode="numeric", onChange=`updateNumber("${number.name}")`)
-      span 
-        input.number_color_editor(id="c_"+number.name, type="color", value=number.color, onChange=`updateNumber("${number.name}")`)
-      span.stat_setting
-       label(for=`w_${number.name}`) Wiggle
-       input(id=`w_${number.name}`, type="checkbox", value=number.wiggle, onChange=`updateNumber("${number.name}")`, checked=JSON.parse(number.wiggle))
-      span.stat_setting 
-        input.number_separator_editor(id=`s_${number.name}`, type="number", onChange=`updateNumber("${number.name}")`, value=number.separator)
+  if number_list
+    each number in number_list 
+      -var name_parsed = number.name.replace("_"," ")
+      div.number_editor(id=number.name)
+        div.number_name(id="n_"+number.name, onclick=`editName("${number.name}")`)=name_parsed
+        input.number_name_editor(id="in_"+number.name, type="text", value=name_parsed, style="text-align: center; display: none;", inputmode="text", onfocusout=`updateNumber("${number.name}")`)
+        input.number_value_editor(id="i_"+number.name, type="text", value=number.value, style="text-align: center;", inputmode="numeric", onChange=`updateNumber("${number.name}")`)
+        span 
+          input.number_color_editor(id="c_"+number.name, type="color", value=number.color, onChange=`updateNumber("${number.name}")`)
+        span.stat_setting
+        label(for=`w_${number.name}`) Wiggle
+        input(id=`w_${number.name}`, type="checkbox", value=number.wiggle, onChange=`updateNumber("${number.name}")`, checked=JSON.parse(number.wiggle))
+        span.stat_setting 
+          input.number_separator_editor(id=`s_${number.name}`, type="number", onChange=`updateNumber("${number.name}")`, value=number.separator)
 div#numbers_editor 
   button.blue(onclick="newNumber()" class="material-symbols-outlined") add_box
   button.red(onclick="rmNumber()" class="material-symbols-outlined") indeterminate_check_box
