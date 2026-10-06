@@ -183,10 +183,11 @@ function checkFile(filename) {
 }
 
 function uploadFile(e) {
-  var filename = $("#file_input_box").val()
+  var filename = $("#file_input_box").val().replace(" ","_")
   var files = document.getElementById("file_input_box").files
   for (i in files) {
     if (checkFile(files[i].name)) {
+        files[i].name = files[i].name.replace(" ","_")
       var form_data = new FormData();
       form_data.append("file", files[i])
       $.ajax(

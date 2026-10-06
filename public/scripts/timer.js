@@ -11,7 +11,7 @@ window.addEventListener("focus", (event) => {
     if (window.screen.width < 400) {
         var ws_prefix = (window.location.hostname == "localhost") ? "ws://" : "wss://"
 
-        var wsocket = new WebSocket(ws_prefix + location.host + '/' + dash_id + '/timer/sync/view');
+        wsocket = new WebSocket(ws_prefix + location.host + '/' + dash_id + '/timer/sync/view');
     }
 
 })

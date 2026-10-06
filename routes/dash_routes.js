@@ -84,7 +84,7 @@ async function generateNewDatabase(dash_id) {
         await db.none(new_db_timer3(round_id[0].id));
 
     } catch (e) {
-
+        console.log(e, dash_id);
     }
 }
 
